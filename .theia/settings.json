@@ -5,7 +5,7 @@
          "directory": "/workspace/HelloGitPod/build"
       }
    ],
-   "cpp.clangdArgs": "--background-index",
+   "cpp.clangdArgs": ["--background-index", "-std=c++17"],
    "cpp.clangdExecutable": "/usr/bin/clangd",
    "cpp.clangTidy": true,
    "cpp.clangTidyChecks": "*",

@@ -13,9 +13,11 @@ file(GLOB SRC_FILES
     "*.cpp"
 )
 
-# Enable C++11 features on gcc/clang
+# Enable C++17 features on gcc/clang
 if("${CMAKE_CXX_COMPILER_ID}" MATCHES "(GNU|Clang)")
-    set(CMAKE_CXX_FLAGS "-std=c++11")
+    set(CMAKE_CXX_FLAGS "-std=c++17")
+    set(CMAKE_CXX_STANDARD_REQUIRED ON)
+    set(CMAKE_CXX_STANDARD 17)
 endif()
 
 add_executable(${problem} ${SRC_FILES})
