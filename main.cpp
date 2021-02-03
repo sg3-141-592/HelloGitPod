@@ -1,8 +1,9 @@
 #include <iostream>
 #include <string>
 #include <string_view>
-
 using namespace std;
+
+#include "keyval.h"
 
 int main()
 {
@@ -12,6 +13,10 @@ int main()
     
 
     cout << text << str << more << endl;
+
+    auto myStore = new keyval();
+
+    cout << myStore->a << endl;
 
     return 0;
 }
