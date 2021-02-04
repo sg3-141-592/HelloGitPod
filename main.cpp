@@ -8,11 +8,11 @@ using namespace std;
 
 int main()
 {
-    auto cache = new keyval(1024);
-    cache->add("Hello", "World");
-    cache->add("Hi", "Billy");
-    cache->add("NumberA", 123);
-    cache->add("NumberB", 98765);
+    auto cache = new keyval(4);
+    for (int i = 0; i < 10; i++) {
+        cache->add("Int" + to_string(i), i);
+        cache->add("String" + to_string(i), to_string(i));
+    }
     cache->print();
     return 0;
 }

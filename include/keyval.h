@@ -11,6 +11,7 @@ enum class cacheEntryType {
 struct cacheVal {
     cacheEntryType type;
     variant<int, string> value;
+    unsigned int counter = 0;
 };
 
 class keyval {
@@ -19,7 +20,9 @@ class keyval {
         void add(string key, string value);
         void add(string key, int value);
         void print();
+        string findLRU();
     private:
         const int size;
         map<string, cacheVal> data;
+        void incrementCount(string lastKey);
 };
