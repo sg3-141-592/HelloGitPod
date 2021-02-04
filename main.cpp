@@ -3,7 +3,7 @@
 #include <string_view>
 using namespace std;
 
-#include "keyval.h"
+#include "include/keyval.h"
 
 int main()
 {
@@ -14,9 +14,9 @@ int main()
 
     cout << text << str << more << endl;
 
-    auto myStore = new keyval();
+    auto myStore = new keyval(1024);
 
-    cout << myStore->a << endl;
+    delete myStore;
 
     return 0;
 }
