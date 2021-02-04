@@ -1,30 +1,10 @@
 #include "keyval.h"
 #include <string>
+#include <variant>
 
 // You can initialize constants in the constructor
 keyval::keyval(unsigned int _initSize) : size(_initSize) {
 
-};
-
-// Add a new string value
-void keyval::add(string key, string value) {
-    // Check if the cache is full
-    if (data.size() >= size) {
-        string lru = findLRU();
-        data.erase(lru);
-    }
-    data[key] = cacheVal {cacheEntryType::String, value};
-    incrementCount(key);
-};
-
-void keyval::add(string key, int value) {
-    // Check if the cache is full
-    if (data.size() + 1 >= size) {
-        string lru = findLRU();
-        data.erase(lru);
-    }
-    data[key] = cacheVal {cacheEntryType::Integer, value};
-    incrementCount(key);
 };
 
 // Increment the counters used to 
@@ -48,6 +28,22 @@ string keyval::findLRU() {
         }
     }
     return largestKey;
+}
+
+void keyval::add(string key, variant<int, string> value) {
+    // Check if the cache is full
+    if (data.size() + 1 >= size) {
+        string lru = findLRU();
+        data.erase(lru);
+    }
+    cacheEntryType entryType;
+    if(holds_alternative<string>(value) == 1) {
+        entryType = cacheEntryType::String;
+    } else if(holds_alternative<int>(value) == 1) {
+        entryType = cacheEntryType::Integer;
+    }
+    data[key] = cacheVal {entryType, value};
+    incrementCount(key);
 }
 
 variant<int, string> keyval::getEntry(string key) {

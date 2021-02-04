@@ -14,5 +14,6 @@ int main()
         cache->add("Int" + to_string(i), i);
         cache->add("String" + to_string(i), to_string(i));
     }
+    cache->print();
     return 0;
 }

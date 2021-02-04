@@ -17,8 +17,7 @@ struct cacheVal {
 class keyval {
     public:
         keyval(unsigned int initSize);
-        void add(string key, string value);
-        void add(string key, int value);
+        void add(string key, variant<int, string> value);
         variant<int, string> getEntry(string key);
         void print();
         string findLRU();
