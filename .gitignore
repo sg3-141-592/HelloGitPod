@@ -38,3 +38,5 @@ build/*
 # Code::Blocks layout files
 *.workspace
 *.workspace.layout
+
+.cache/*

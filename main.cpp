@@ -1,25 +1,18 @@
 #include <iostream>
 #include <string>
 #include <string_view>
+#include <variant>
 using namespace std;
 
 #include "include/keyval.h"
 
 int main()
 {
-    string_view text{ "hello" };
-    string_view str{ text };
-    string_view more{ str };
-    
-
-    cout << text << str << more << endl;
-
-    auto myStore = new keyval(1024);
-    myStore->add("Hello", "World");
-    myStore->add("Sean","Rulez");
-    myStore->print();
-
-    delete myStore;
-
+    auto cache = new keyval(1024);
+    cache->add("Hello", "World");
+    cache->add("Hi", "Billy");
+    cache->add("NumberA", 123);
+    cache->add("NumberB", 98765);
+    cache->print();
     return 0;
 }
