@@ -15,6 +15,9 @@ int main()
     cout << text << str << more << endl;
 
     auto myStore = new keyval(1024);
+    myStore->add("Hello", "World");
+    myStore->add("Sean","Rulez");
+    myStore->print();
 
     delete myStore;
 
