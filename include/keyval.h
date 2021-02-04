@@ -19,6 +19,7 @@ class keyval {
         keyval(unsigned int initSize);
         void add(string key, string value);
         void add(string key, int value);
+        variant<int, string> getEntry(string key);
         void print();
         string findLRU();
     private:

@@ -9,7 +9,7 @@ keyval::keyval(unsigned int _initSize) : size(_initSize) {
 // Add a new string value
 void keyval::add(string key, string value) {
     // Check if the cache is full
-    if (data.size() + 1 >= size) {
+    if (data.size() >= size) {
         string lru = findLRU();
         data.erase(lru);
     }
@@ -48,6 +48,10 @@ string keyval::findLRU() {
         }
     }
     return largestKey;
+}
+
+variant<int, string> keyval::getEntry(string key) {
+    return data[key].value;
 }
 
 void keyval::print() {
