@@ -1,1 +1,2 @@
-clang-tidy main.cpp -extra-arg=-std=c++17 -- -Iinclude -DMY_DEFINES ...
+cmake --build build --target all
+valgrind --leak-check=full -s ./build/HelloGitPod
