@@ -1,3 +1,6 @@
+image:
+  file: .gitpod.Dockerfile
+
 tasks:
 - init: >
     cmake -S. -Bbuild -DCMAKE_EXPORT_COMPILE_COMMANDS=ON &&
