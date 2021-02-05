@@ -20,9 +20,9 @@ class keyval {
         void add(string key, variant<int, string> value);
         variant<int, string> getEntry(string key);
         void print();
-        string findLRU();
     private:
         const int size;
         map<string, cacheVal> data;
         void incrementCount(string lastKey);
+        string findLRU();
 };
