@@ -40,3 +40,6 @@ build/*
 *.workspace.layout
 
 .cache/*
+
+aws-build/*
+aws-sdk-cpp/*
