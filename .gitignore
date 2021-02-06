@@ -43,3 +43,4 @@ build/*
 
 aws-build/*
 aws-sdk-cpp/*
+aws-program/*
