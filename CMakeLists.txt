@@ -13,10 +13,6 @@ file(GLOB SRC_FILES
     "*.cpp"
 )
 
-add_library(keyval STATIC include/keyval.cpp include/)
-target_include_directories(keyval PUBLIC ${include})
-target_compile_features(keyval PUBLIC cxx_std_17)
-
 # Enable C++17 features on gcc/clang
 if("${CMAKE_CXX_COMPILER_ID}" MATCHES "(GNU|Clang)")
     set(CMAKE_CXX_FLAGS "-std=c++17 --coverage -fprofile-arcs -ftest-coverage")
@@ -24,7 +20,10 @@ if("${CMAKE_CXX_COMPILER_ID}" MATCHES "(GNU|Clang)")
     set(CMAKE_CXX_STANDARD 17)
 endif()
 
+find_package(cpprestsdk REQUIRED)
+
+
 set(CMAKE_BUILD_TYPE Debug)
 
 add_executable(${problem} ${SRC_FILES})
-target_link_libraries(${problem} PUBLIC keyval)
+target_link_libraries(${problem} PRIVATE cpprestsdk::cpprest)

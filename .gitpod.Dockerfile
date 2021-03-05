@@ -3,7 +3,7 @@ FROM gitpod/workspace-full
 USER gitpod
 
 RUN sudo apt-get update -q && \
-    sudo apt-get install -yq valgrind
+    sudo apt-get install -yq libcpprest-dev
 
 # RUN git clone https://github.com/aws/aws-sdk-cpp.git
 
